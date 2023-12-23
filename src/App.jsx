@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="container mx-auto">
       <Header />
-      <div className="md:flex">
+      <div className="md:flex mt-5 gap-4">
         <Blogs />
         <BookMarks />
       </div>

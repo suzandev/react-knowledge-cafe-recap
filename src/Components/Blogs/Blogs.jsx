@@ -11,9 +11,10 @@ const Blogs = () => {
       .then((data) => setBlogs(data));
   }, []);
   return (
-    <div className="md:w-2/3">
-      <h3>This is blogs: {blogs.length}</h3>
-      <Blog />
+    <div className="md:w-2/3 grid grid-cols-1 lg:grid-cols-2  gap-4">
+      {blogs.map((blog) => (
+        <Blog blog={blog} key={blog.id} />
+      ))}
     </div>
   );
 };

@@ -1,36 +1,39 @@
 import PropTypes from "prop-types";
+import author_img from "/images/boy1.png";
 
 const Blog = ({ blog }) => {
+  const { cover_img, author_name, posted_date, reading_time, hashtags, title } =
+    blog;
   console.log(blog);
   return (
     <div className="px-2 md:p-0">
-      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="w-full max-w-4xl bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <img
-          className="p-8 rounded-t-lg"
-          src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Ym9vayUyMGNvdmVyfGVufDB8fDB8fHww"
+          className="p-8 rounded-t-lg w-full md:h-[350px]"
+          src={cover_img}
           alt="product image"
         />
-        {/* aikhane kaj korte hobe  */}
+        {/* ============= */}
         <div className="px-5 pb-5 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="avatar">
               <div className="w-10 md:w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <img src={author_img} />
               </div>
             </div>
             <div>
               <h3 className="text-gray-900 dark:text-white text-sm md:text-base">
-                author Name
+                {author_name}
               </h3>
               <p className="text-gray-900 dark:text-white text-sm md:text-base">
-                author Date
+                {posted_date}
               </p>
             </div>
           </div>
 
           <div>
             <h3 className="text-gray-900 dark:text-white text-sm md:text-base">
-              Reading Time
+              {reading_time} <span className="reading_time">min read</span>
             </h3>
           </div>
         </div>
@@ -38,7 +41,7 @@ const Blog = ({ blog }) => {
         <div className="px-5 pb-5">
           <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+              {title}
             </h5>
           </a>
 
@@ -94,16 +97,25 @@ const Blog = ({ blog }) => {
               5.0
             </span>
           </div>
-          <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold text-gray-900 dark:text-white">
-              $ 599
-            </span>
-            <button
-              href="#"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Add to cart
-            </button>
+          <div className="md:flex md:items-center md:justify-between text-center">
+            <div className="flex items-center gap-2 flex-wrap justify-center">
+              {hashtags.map((tag, ind) => (
+                <span
+                  className="font-bold text-gray-900 dark:text-white"
+                  key={ind}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <div className="mt-3">
+              <button
+                href="#"
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full md:max-w-32"
+              >
+                Add to cart
+              </button>
+            </div>
           </div>
         </div>
       </div>
